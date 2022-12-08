@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - The Boiler Plate Events </title>
+</head>
+<body>
+    <h1>Events</h1>
+    <form action="/events" method="post">
+        <label for="date">date</label>
+        <input type="date" name="date" id="date">
+
+        <label for="name">name</label>
+        <input type="text" name="name" id="name">
+
+        <label for="guests">guests</label>
+        <input type="number" name="guests" id="guests">
+
+        <label for="room">room</label>
+        <input type="text" name="room" id="room">
+
+        <label for="description">description</label>
+        <input type="text" name="description" id="description">
+
+        <br>
+        <br>
+        <fieldset>
+            <legend>Is the event recurring?</legend>
+            <div>
+              <input type="checkbox" id="yes" name="recurring" value="yes" />
+              <label for="yes">Yes</label>
+            </div>
+            <div>
+              <input type="checkbox" id="no" name="recurring" value="no" checked/>
+              <label for="no">No</label>
+            </div>
+          </fieldset>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+    <br>
+    <hr>
+    {% for event in events %}
+    <p> date: {{ event.date}} <br> name: {{event.name}} <br> guests: {{ event.guests }} <br> room: {{ event.room }} <br> description: {{ event.description }} <br> recurring: {{ event.recurring }} <hr> </p>
+    {% endfor %}
+</body>
+</html>
